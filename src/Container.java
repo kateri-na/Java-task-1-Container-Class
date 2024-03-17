@@ -11,7 +11,8 @@ public class Container {
         if (head == null){
             head = addedElement;
         } else {
-            Node current_element = head;
+            Node current_element = new Node();
+            current_element = head;
             while(current_element.next != null){
                 current_element = current_element.next;
             }
@@ -19,9 +20,11 @@ public class Container {
         }
     }
     public void Print(){
-        Node current_element = head;
+        Node current_element = new Node();
+        current_element = head;
         while (current_element != null){
             System.out.print(current_element.element + ' ');
+            current_element = current_element.next;
         }
     }
 }
@@ -29,6 +32,7 @@ public class Container {
 class Node {
     public int element;
     public Node next;
+    public Node(){ }
     public Node(int element){
         this.element = element;
         next = null;
