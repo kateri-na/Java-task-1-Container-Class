@@ -1,3 +1,5 @@
+import java.beans.Expression;
+
 public class Container {
     private Node head;
     public Container(){
@@ -11,19 +13,31 @@ public class Container {
         if (head == null){
             head = addedElement;
         } else {
-            Node current_element = head;
-            while(current_element.next != null){
-                current_element = current_element.next;
+            Node currentElement = head;
+            while(currentElement.next != null){
+                currentElement = currentElement.next;
             }
-            current_element.next = addedElement;
+            currentElement.next = addedElement;
         }
     }
-    public void Print(){
-        Node current_element = head;
-        while (current_element != null){
-            System.out.print(current_element.element + " ");
-            current_element = current_element.next;
+
+    public void Find(LambdaExpression check){
+        Node currentElement = head;
+        while (currentElement != null){
+            if (check.isEqual(currentElement.element)){
+                System.out.print(currentElement.element + " ");
+            }
+            currentElement = currentElement.next;
         }
+        System.out.println();
+    }
+    public void Print(){
+        Node currentElement = head;
+        while (currentElement != null){
+            System.out.print(currentElement.element + " ");
+            currentElement = currentElement.next;
+        }
+        System.out.println();
     }
 }
 
