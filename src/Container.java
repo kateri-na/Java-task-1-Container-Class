@@ -21,16 +21,36 @@ public class Container {
 
     public void Find(LambdaExpression check){
         Node currentElement = head;
+        boolean isFound = false;
         while (currentElement != null){
             if (check.isEqual(currentElement.element)){
+                isFound = true;
                 System.out.print(currentElement.element + " ");
             }
             currentElement = currentElement.next;
         }
+        if (!isFound){
+            System.out.println("There are no appropriate elements");
+        }
         System.out.println();
+    }
+    public void Delete(int element){
+        Node currentElement = head;
+        while(currentElement != null){
+            if(currentElement.next != null && currentElement.next.element == element){
+                currentElement.next = currentElement.next.next;
+            }
+            if (head.element == element){
+                head = currentElement.next;
+            }
+            currentElement = currentElement.next;
+        }
     }
     public void Print(){
         Node currentElement = head;
+        if(head == null){
+            System.out.println("Container is empty");
+        }
         while (currentElement != null){
             System.out.print(currentElement.element + " ");
             currentElement = currentElement.next;
